@@ -17,11 +17,12 @@ class Pdf {
 				define($conf, Config::get('pdf::'.$conf));
 		}
 
-		require_once 'dompdf/dompdf_config.inc.php';
+		// include autoloader
+		require_once 'dompdf/autoload.inc.php';
 
 		$this->dompdf = new \DOMPDF();
-		
-		
+
+
 		if (Config::has('pdf::base_path')) {
 			$this->dompdf->set_base_path(Config::get('pdf::base_path'));
 		}
