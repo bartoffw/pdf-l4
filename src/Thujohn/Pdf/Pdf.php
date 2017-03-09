@@ -68,7 +68,7 @@ class Pdf {
 	}
 
 	public function clear(){
-		\Image_Cache::clear();
+		// \Image_Cache::clear();
 		return true;
 	}
 }
