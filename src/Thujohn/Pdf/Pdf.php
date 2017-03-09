@@ -1,7 +1,11 @@
 <?php namespace Thujohn\Pdf;
 
+// include autoloader
+require_once 'dompdf/autoload.inc.php';
+
 use Illuminate\Support\Facades\Config as Config;
 use Illuminate\Http\Response;
+use Dompdf\Dompdf;
 
 class Pdf {
 	protected $dompdf;
@@ -17,11 +21,7 @@ class Pdf {
 				define($conf, Config::get('pdf::'.$conf));
 		}
 
-		// include autoloader
-		require_once 'dompdf/autoload.inc.php';
-
-		$this->dompdf = new \DOMPDF();
-
+		$this->dompdf = new Dompdf();
 
 		if (Config::has('pdf::base_path')) {
 			$this->dompdf->set_base_path(Config::get('pdf::base_path'));
