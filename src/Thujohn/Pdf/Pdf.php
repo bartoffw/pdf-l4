@@ -23,6 +23,12 @@ class Pdf {
 
 		$this->dompdf = new Dompdf();
 
+        // set remote enabled by default
+        // see: https://github.com/dompdf/dompdf/issues/1118
+        $options = new Options();
+        $options->setIsRemoteEnabled(true);
+        $this->dompdf->setOptions($options);
+
 		if (Config::has('pdf::base_path')) {
 			$this->dompdf->set_base_path(Config::get('pdf::base_path'));
 		}
