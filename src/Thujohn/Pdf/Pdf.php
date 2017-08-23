@@ -6,6 +6,7 @@ require_once 'dompdf/autoload.inc.php';
 use Illuminate\Support\Facades\Config as Config;
 use Illuminate\Http\Response;
 use Dompdf\Dompdf;
+use Dompdf\Options;
 
 class Pdf {
 	protected $dompdf;
