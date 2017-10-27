@@ -28,6 +28,9 @@ class Pdf {
         // see: https://github.com/dompdf/dompdf/issues/1118
         $options = new Options();
         $options->setIsRemoteEnabled(true);
+        // for page numbers
+        // see: https://stackoverflow.com/questions/19983610/how-to-get-page-number-on-dompdf-pdf-when-using-view
+        $options->setIsPhpEnabled(true);
         $this->dompdf->setOptions($options);
 
 		if (Config::has('pdf::base_path')) {
